@@ -1,0 +1,26 @@
+/* Form Section */
+.todoForm {
+  margin-bottom: 20px;
+}
+
+.formControl {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.inputText {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.formActions{
+  margin: 20px 0;
+}
