@@ -48,16 +48,21 @@ const App = () => {
       return prevTodos.filter((todo) => todo.userId !== userId)
     })
   }
+  const fetchTodos = async (): Promise<TodosProps[]> => {
+
+    const response = await fetch('https://dummyjson.com/todos/');
+    if (!response.ok) {
+      throw new Error('An error occured');
+    }
+    const data = await response.json();
+    const { todos } = data;
+    return todos;
+  }
   useEffect(() => {
     (async () => {
-      const response = await fetch('https://dummyjson.com/todos/');
-      if (!response.ok) {
-        throw new Error('An error occured');
-      }
-      const data = await response.json();
-      const { todos } = data;
+      const todos = await fetchTodos()
       setTodos(todos);
-    })();
+    })()
   }, [])
   return (
     <section className={classes.container}>
